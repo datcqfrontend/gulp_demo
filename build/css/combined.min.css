@@ -1,0 +1,28 @@
+/*This is css body*/ 
+body {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+body > p {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  text-align: center;
+  background-color: #fff; 
+}
+/*This is css body*/ 
+content {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+content > p {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  text-align: center;
+  background-color: #fff; 
+}

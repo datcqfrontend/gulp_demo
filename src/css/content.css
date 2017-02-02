@@ -1,0 +1,10 @@
+/*This is css body*/ 
+content {
+  display: flex;
+}
+
+content > p {
+  flex: 1;
+  text-align: center;
+  background-color: #fff; 
+}
