@@ -15,6 +15,7 @@ var jshint = require('gulp-jshint');
 
 var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
+var image = require('gulp-image');
 var rename = require('gulp-rename');
 var header = require('gulp-header');
 
@@ -34,7 +35,7 @@ function changeParams(content) {
 }
 
 gulp.task('default',[
-    'html','clone-images','build-css','build-js'
+    'html','image','build-css','build-js'
 
     //'watch'
 ]);
@@ -53,14 +54,21 @@ gulp.task('html', function() {
         .pipe(gulp.dest('build'));
 })
 
-gulp.task('clone-images', function() {
-    gulputil.log('---Clone images')
-    return gulp.src([
-        'src/images/**'
-        ])
-        .pipe(gulp.dest('build/images'));
-    
-})
+gulp.task('image', function () {
+  gulp.src('src/img/*')
+    .pipe(image({
+      pngquant: true,
+      optipng: false,
+      zopflipng: true,
+      jpegRecompress: false,
+      jpegoptim: true,
+      mozjpeg: true,
+      gifsicle: true,
+      svgo: true,
+      concurrent: 10
+    }))
+    .pipe(gulp.dest('build/img'));
+});
 
 gulp.task('build-css',function() {
     gulputil.log('---Build css')
